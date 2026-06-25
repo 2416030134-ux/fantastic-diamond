@@ -1,0 +1,768 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+.MsoChpDefault
+	{font-family:"Calibri","sans-serif";}
+.MsoPapDefault
+	{text-align:justify;
+	line-height:115%;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:2.0cm 2.0cm 2.0cm 3.0cm;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&lt;!DOCTYPE html&gt;</p>
+
+<p class=MsoNormal>&lt;html lang=&quot;vi&quot;&gt;</p>
+
+<p class=MsoNormal>&lt;head&gt;</p>
+
+<p class=MsoNormal>    &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;title&gt;Classic Literature Store - Sách Ngo&#7841;i
+V&#259;n Kinh &#272;i&#7875;n&lt;/title&gt;</p>
+
+<p class=MsoNormal>    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4&quot;&gt;&lt;/script&gt;</p>
+
+<p class=MsoNormal>    &lt;link rel=&quot;stylesheet&quot;
+href=&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;style&gt;</p>
+
+<p class=MsoNormal>        .modal { transition: opacity 0.25s ease; }</p>
+
+<p class=MsoNormal>        body.modal-active { overflow: hidden; }</p>
+
+<p class=MsoNormal>    &lt;/style&gt;</p>
+
+<p class=MsoNormal>&lt;/head&gt;</p>
+
+<p class=MsoNormal>&lt;body class=&quot;bg-gray-50 font-sans min-h-screen flex
+flex-col&quot;&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;header class=&quot;bg-amber-950 text-white shadow-md
+sticky top-0 z-40 border-b-2 border-amber-600&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;container mx-auto px-4 py-4 flex
+flex-col md:flex-row justify-between items-center gap-4&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;h1 class=&quot;text-2xl font-serif font-bold
+tracking-wider&quot;&gt;&lt;i class=&quot;fa-solid fa-feather-pointed mr-2
+text-amber-400&quot;&gt;&lt;/i&gt;CLASSIC BOOKS&lt;/h1&gt;</p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal>            &lt;div class=&quot;relative w-full
+md:w-96&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;input type=&quot;text&quot;
+id=&quot;searchInput&quot; oninput=&quot;handleSearch()&quot;
+placeholder=&quot;Tìm t&#7921;a sách kinh &#273;i&#7875;n ho&#7863;c tác gi&#7843;...&quot;
+class=&quot;w-full bg-amber-900 text-white placeholder-amber-300 rounded-lg
+pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400 border
+border-transparent focus:border-transparent&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;span class=&quot;absolute left-3 top-2.5
+text-amber-300&quot;&gt;&lt;i class=&quot;fa-solid
+fa-magnifying-glass&quot;&gt;&lt;/i&gt;&lt;/span&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal>            &lt;div class=&quot;relative cursor-pointer
+text-xl&quot; onclick=&quot;toggleCartModal()&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;i class=&quot;fa-solid fa-book-bookmark
+text-amber-400&quot;&gt;&lt;/i&gt;</p>
+
+<p class=MsoNormal>                &lt;span id=&quot;cartCount&quot;
+class=&quot;absolute -top-2 -right-3 bg-emerald-600 text-xs text-white
+rounded-full w-5 h-5 flex items-center justify-center
+font-bold&quot;&gt;0&lt;/span&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/header&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;main class=&quot;container mx-auto px-4 py-8
+flex-grow&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div id=&quot;booksGrid&quot; class=&quot;grid
+grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;flex justify-center items-center
+mt-12 gap-2&quot; id=&quot;paginationControls&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/main&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;footer class=&quot;bg-stone-900 text-stone-400
+text-center py-6 mt-12 border-t border-stone-800&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;p&gt;&amp;copy; 2026 Classic Books Store. Tinh
+hoa V&#259;n h&#7885;c Ngo&#7841;i v&#259;n.&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;/footer&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;div id=&quot;cartModal&quot; class=&quot;modal
+opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex
+items-center justify-center z-50&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;modal-overlay absolute w-full
+h-full bg-gray-900 opacity-50&quot;
+onclick=&quot;toggleCartModal()&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>        </p>
+
+<p class=MsoNormal>        &lt;div class=&quot;modal-container bg-white w-full
+max-w-lg mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;modal-content py-4 text-left
+px-6&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;div class=&quot;flex justify-between
+items-center pb-3 border-b border-gray-200&quot;&gt;</p>
+
+<p class=MsoNormal>                    &lt;p class=&quot;text-2xl font-serif
+font-bold text-stone-800&quot;&gt;&lt;i class=&quot;fa-solid fa-basket-shopping
+mr-2 text-amber-900&quot;&gt;&lt;/i&gt;&#272;&#417;n hàng c&#7911;a b&#7841;n&lt;/p&gt;</p>
+
+<p class=MsoNormal>                    &lt;div class=&quot;modal-close
+cursor-pointer z-50&quot; onclick=&quot;toggleCartModal()&quot;&gt;</p>
+
+<p class=MsoNormal>                        &lt;i class=&quot;fa-solid fa-xmark
+text-xl text-gray-500 hover:text-black&quot;&gt;&lt;/i&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>                &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                &lt;div id=&quot;cartItemsList&quot;
+class=&quot;my-4 divide-y divide-gray-100&quot;&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                &lt;div class=&quot;text-right font-bold
+text-lg text-amber-900 mb-4&quot; id=&quot;cartTotal&quot;&gt;</p>
+
+<p class=MsoNormal>                    T&#7893;ng c&#7897;ng: 0&#273;</p>
+
+<p class=MsoNormal>                &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                &lt;form id=&quot;orderForm&quot;
+target=&quot;hidden_iframe&quot; onsubmit=&quot;submitted=true;&quot;
+action=&quot; https://docs.google.com/forms/d/e/1FAIpQLSePahb-phlTbLg0nq-koa1TLQX92okB7_FJxJjr1WN9iSdnxw/formResponse
+&quot; method=&quot;POST&quot; class=&quot;space-y-4 border-t pt-4&quot;&gt;</p>
+
+<p class=MsoNormal>                    &lt;div&gt;</p>
+
+<p class=MsoNormal>                        &lt;label class=&quot;block text-sm
+font-medium text-gray-700&quot;&gt;H&#7885; và tên *&lt;/label&gt;</p>
+
+<p class=MsoNormal>                        &lt;input type=&quot;text&quot;
+name=&quot;entry.1357496465&quot; required class=&quot;mt-1 block w-full
+rounded-md border-gray-300 shadow-sm p-2 bg-gray-50 border
+focus:border-amber-500 focus:ring-amber-500&quot;&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>                    &lt;div&gt;</p>
+
+<p class=MsoNormal>                        &lt;label class=&quot;block text-sm
+font-medium text-gray-700&quot;&gt;S&#7889; &#273;i&#7879;n tho&#7841;i
+*&lt;/label&gt;</p>
+
+<p class=MsoNormal>                        &lt;input type=&quot;tel&quot;
+name=&quot;entry.578842422&quot; required class=&quot;mt-1 block w-full
+rounded-md border-gray-300 shadow-sm p-2 bg-gray-50 border
+focus:border-amber-500 focus:ring-amber-500&quot;&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>                    &lt;div&gt;</p>
+
+<p class=MsoNormal>                        &lt;label class=&quot;block text-sm
+font-medium text-gray-700&quot;&gt;&#272;&#7883;a ch&#7881; nh&#7853;n hàng
+*&lt;/label&gt;</p>
+
+<p class=MsoNormal>                        &lt;textarea name=&quot;entry.599224227&quot;
+required rows=&quot;2&quot; class=&quot;mt-1 block w-full rounded-md
+border-gray-300 shadow-sm p-2 bg-gray-50 border focus:border-amber-500
+focus:ring-amber-500&quot;&gt;&lt;/textarea&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                    &lt;input type=&quot;hidden&quot;
+id=&quot;hiddenOrderDetails&quot; name=&quot;entry.444444444&quot;&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                    &lt;button type=&quot;submit&quot;
+class=&quot;w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold
+py-3 px-4 rounded-lg shadow transition duration-200&quot;&gt;</p>
+
+<p class=MsoNormal>                        &lt;i class=&quot;fa-solid
+fa-circle-check mr-2&quot;&gt;&lt;/i&gt; Xác nh&#7853;n &#273;&#7863;t hàng</p>
+
+<p class=MsoNormal>                    &lt;/button&gt;</p>
+
+<p class=MsoNormal>                &lt;/form&gt;</p>
+
+<p class=MsoNormal>                </p>
+
+<p class=MsoNormal>                &lt;iframe name=&quot;hidden_iframe&quot;
+id=&quot;hidden_iframe&quot; style=&quot;display:none;&quot;
+onload=&quot;if(submitted) { showPaymentStep(); }&quot;&gt;&lt;/iframe&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;div id=&quot;paymentModal&quot; class=&quot;modal
+opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex
+items-center justify-center z-50&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;modal-overlay absolute w-full
+h-full bg-gray-900 opacity-60&quot;&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;bg-white w-full max-w-md mx-auto
+rounded-lg shadow-xl z-50 p-6 text-center&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;div class=&quot;text-emerald-500 text-5xl
+mb-2&quot;&gt;&lt;i class=&quot;fa-solid
+fa-circle-check&quot;&gt;&lt;/i&gt;&lt;/div&gt;</p>
+
+<p class=MsoNormal>            &lt;h3 class=&quot;text-xl font-bold
+text-gray-900 mb-2&quot;&gt;&#272;&#7863;t hàng thành công!&lt;/h3&gt;</p>
+
+<p class=MsoNormal>            &lt;p class=&quot;text-sm text-gray-600
+mb-4&quot;&gt;H&#7879; th&#7889;ng &#273;ã ghi nh&#7853;n &#273;&#417;n hàng.
+Quý khách vui lòng quét mã QR d&#432;&#7899;i &#273;ây &#273;&#7875; hoàn t&#7845;t
+chuy&#7875;n kho&#7843;n thanh toán th&#7911; công.&lt;/p&gt;</p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal>            &lt;div class=&quot;bg-gray-100 p-3 rounded-lg
+inline-block mb-4&quot;&gt;</p>
+
+<p class=MsoNormal>                &lt;img src=&quot;anh_qr_cua_ban.jpg&quot;
+alt=&quot;Mã QR Thanh Toán&quot; class=&quot;w-64 h-64 mx-auto object-cover
+border-2 border-amber-200 rounded&quot;&gt;</p>
+
+<p class=MsoNormal>            &lt;/div&gt;</p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal>            &lt;p class=&quot;text-xs text-red-600
+font-semibold mb-4&quot;&gt;N&#7897;i dung CK: [H&#7885; tên khách] + [S&#7889;
+&#273;i&#7879;n tho&#7841;i]&lt;/p&gt;</p>
+
+<p class=MsoNormal>            &lt;button onclick=&quot;closeAllModals()&quot;
+class=&quot;w-full bg-amber-950 hover:bg-amber-900 text-white font-bold py-2
+px-4 rounded transition&quot;&gt;</p>
+
+<p class=MsoNormal>                Hoàn thành &amp; &#272;óng</p>
+
+<p class=MsoNormal>            &lt;/button&gt;</p>
+
+<p class=MsoNormal>        &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;script&gt;</p>
+
+<p class=MsoNormal>        let submitted = false;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        // C&#7853;p nh&#7853;t danh sách 12 cu&#7889;n sách
+theo yêu c&#7847;u c&#7911;a b&#7841;n (9 cu&#7889;n yêu c&#7847;u + 3 cu&#7889;n
+b&#7893; sung cùng ch&#7911; &#273;&#7873;)</p>
+
+<p class=MsoNormal>        const booksData = [</p>
+
+<p class=MsoNormal>            { id: 1, title: &quot;The Count of Monte
+Cristo&quot;, author: &quot;Alexandre Dumas&quot;, price: 345000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/71uSInC6EIL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 2, title: &quot;The Brothers
+Karamazov&quot;, author: &quot;Fyodor Dostoevsky&quot;, price: 290000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/71w7Xm8A9rL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 3, title: &quot;The Master and
+Margarita&quot;, author: &quot;Mikhail Bulgakov&quot;, price: 260000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/71p-m8lYmYL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 4, title: &quot;Henry V&quot;, author:
+&quot;William Shakespeare&quot;, price: 180000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/81S2AALZURL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 5, title: &quot;Jane Eyre&quot;, author:
+&quot;Charlotte Brontë&quot;, price: 210000, img: &quot;https://images-na.ssl-images-amazon.com/images/I/81pwO-YmHeL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 6, title: &quot;Animal Farm&quot;, author:
+&quot;George Orwell&quot;, price: 150000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/71wDbXCHg8L._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 7, title: &quot;The Enchanted April&quot;,
+author: &quot;Elizabeth von Arnim&quot;, price: 195000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/71g4I8Ssc3L._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 8, title: &quot;The Woman in White&quot;,
+author: &quot;Wilkie Collins&quot;, price: 270000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/61b7L41e3HL._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 9, title: &quot;The Tenant of Wildfell
+Hall&quot;, author: &quot;Anne Brontë&quot;, price: 240000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/81fH+0y8m6L._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            // 3 cu&#7889;n b&#7893; sung &#273;&#7875; tròn
+12 cu&#7889;n (phân làm 2 trang, m&#7895;i trang 6 cu&#7889;n)</p>
+
+<p class=MsoNormal>            { id: 10, title: &quot;Wuthering Heights&quot;,
+author: &quot;Emily Brontë&quot;, price: 220000, img: &quot;https://images-na.ssl-images-amazon.com/images/I/81A-f9pS69L._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 11, title: &quot;Pride and
+Prejudice&quot;, author: &quot;Jane Austen&quot;, price: 190000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/81wKovwY6ML._AC_UL600_SR600,400_.jpg&quot;
+},</p>
+
+<p class=MsoNormal>            { id: 12, title: &quot;Great Expectations&quot;,
+author: &quot;Charles Dickens&quot;, price: 250000, img:
+&quot;https://images-na.ssl-images-amazon.com/images/I/619864YkSlL._AC_UL600_SR600,400_.jpg&quot;
+}</p>
+
+<p class=MsoNormal>        ];</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        let filteredBooks = [...booksData]; </p>
+
+<p class=MsoNormal>        let currentPage = 1;</p>
+
+<p class=MsoNormal>        const itemsPerPage = 6; // Phân trang 6 lo&#7841;i s&#7843;n
+ph&#7849;m m&#7897;t trang c&#7889; &#273;&#7883;nh</p>
+
+<p class=MsoNormal>        let cart = {}; </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function renderBooks() {</p>
+
+<p class=MsoNormal>            const grid =
+document.getElementById('booksGrid');</p>
+
+<p class=MsoNormal>            grid.innerHTML = &quot;&quot;;</p>
+
+<p class=MsoNormal>            </p>
+
+<p class=MsoNormal>            const startIndex = (currentPage - 1) *
+itemsPerPage;</p>
+
+<p class=MsoNormal>            const endIndex = startIndex + itemsPerPage;</p>
+
+<p class=MsoNormal>            const pageItems =
+filteredBooks.slice(startIndex, endIndex);</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            if (pageItems.length === 0) {</p>
+
+<p class=MsoNormal>                grid.innerHTML = `&lt;div
+class=&quot;col-span-full text-center py-12 text-gray-500&quot;&gt;Không tìm th&#7845;y
+cu&#7889;n sách kinh &#273;i&#7875;n nào kh&#7899;p t&#7915;
+khóa.&lt;/div&gt;`;</p>
+
+<p class=MsoNormal>                return;</p>
+
+<p class=MsoNormal>            }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            pageItems.forEach(book =&gt; {</p>
+
+<p class=MsoNormal>                const bookCard = `</p>
+
+<p class=MsoNormal>                    &lt;div class=&quot;bg-white rounded-xl
+shadow-sm overflow-hidden hover:shadow-lg transition duration-300 flex flex-col
+border border-stone-200/60&quot;&gt;</p>
+
+<p class=MsoNormal>                        &lt;div class=&quot;h-72
+bg-stone-100 overflow-hidden flex items-center justify-center p-4&quot;&gt;</p>
+
+<p class=MsoNormal>                            &lt;img
+src=&quot;${book.img}&quot; alt=&quot;${book.title}&quot; class=&quot;h-full
+object-contain hover:scale-105 transition duration-300 shadow-md&quot;&gt;</p>
+
+<p class=MsoNormal>                        &lt;/div&gt;</p>
+
+<p class=MsoNormal>                        &lt;div class=&quot;p-5 flex-grow
+flex flex-col justify-between bg-stone-50/50&quot;&gt;</p>
+
+<p class=MsoNormal>                            &lt;div&gt;</p>
+
+<p class=MsoNormal>                                &lt;h3 class=&quot;text-base
+font-serif font-bold text-stone-950
+line-clamp-1&quot;&gt;${book.title}&lt;/h3&gt;</p>
+
+<p class=MsoNormal>                                &lt;p class=&quot;text-xs
+text-stone-500 mb-2&quot;&gt;By ${book.author}&lt;/p&gt;</p>
+
+<p class=MsoNormal>                            &lt;/div&gt;</p>
+
+<p class=MsoNormal>                            &lt;div class=&quot;mt-4 flex
+items-center justify-between&quot;&gt;</p>
+
+<p class=MsoNormal>                                &lt;span
+class=&quot;text-amber-900 font-extrabold
+text-base&quot;&gt;${book.price.toLocaleString('vi-VN')} &#273;&lt;/span&gt;</p>
+
+<p class=MsoNormal>                                &lt;button
+onclick=&quot;addToCart(${book.id})&quot; class=&quot;bg-amber-950
+hover:bg-amber-800 text-white text-xs font-bold px-3 py-2 rounded shadow
+transition duration-200&quot;&gt;</p>
+
+<p class=MsoNormal>                                    &lt;i
+class=&quot;fa-solid fa-plus mr-1&quot;&gt;&lt;/i&gt; Thêm vào gi&#7887;</p>
+
+<p class=MsoNormal>                                &lt;/button&gt;</p>
+
+<p class=MsoNormal>                            &lt;/div&gt;</p>
+
+<p class=MsoNormal>                        &lt;/div&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>                `;</p>
+
+<p class=MsoNormal>                grid.innerHTML += bookCard;</p>
+
+<p class=MsoNormal>            });</p>
+
+<p class=MsoNormal>            renderPagination();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function renderPagination() {</p>
+
+<p class=MsoNormal>            const controls =
+document.getElementById('paginationControls');</p>
+
+<p class=MsoNormal>            controls.innerHTML = &quot;&quot;;</p>
+
+<p class=MsoNormal>            const totalPages =
+Math.ceil(filteredBooks.length / itemsPerPage);</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            if (totalPages &lt;= 1) return;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            for (let i = 1; i &lt;= totalPages; i++) {</p>
+
+<p class=MsoNormal>                const activeClass = (i === currentPage) ?
+'bg-amber-950 text-white' : 'bg-white text-stone-700 hover:bg-stone-100';</p>
+
+<p class=MsoNormal>                controls.innerHTML += `&lt;button
+onclick=&quot;goToPage(${i})&quot; class=&quot;px-4 py-2 border
+border-stone-300 rounded font-medium transition ${activeClass}&quot;&gt;${i}&lt;/button&gt;`;</p>
+
+<p class=MsoNormal>            }</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function goToPage(page) {</p>
+
+<p class=MsoNormal>            currentPage = page;</p>
+
+<p class=MsoNormal>            renderBooks();</p>
+
+<p class=MsoNormal>            window.scrollTo({ top: 0, behavior: 'smooth' });</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function handleSearch() {</p>
+
+<p class=MsoNormal>            const query =
+document.getElementById('searchInput').value.toLowerCase().trim();</p>
+
+<p class=MsoNormal>            filteredBooks = booksData.filter(book =&gt; </p>
+
+<p class=MsoNormal>                book.title.toLowerCase().includes(query) || </p>
+
+<p class=MsoNormal>                book.author.toLowerCase().includes(query)</p>
+
+<p class=MsoNormal>            );</p>
+
+<p class=MsoNormal>            currentPage = 1; </p>
+
+<p class=MsoNormal>            renderBooks();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function addToCart(id) {</p>
+
+<p class=MsoNormal>            cart[id] = (cart[id] || 0) + 1;</p>
+
+<p class=MsoNormal>            updateCartStatus();</p>
+
+<p class=MsoNormal>            const cartIcon = document.getElementById('cartCount');</p>
+
+<p class=MsoNormal>            cartIcon.classList.add('scale-125',
+'bg-red-600');</p>
+
+<p class=MsoNormal>            setTimeout(() =&gt;
+cartIcon.classList.remove('scale-125', 'bg-red-600'), 300);</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function updateCartStatus() {</p>
+
+<p class=MsoNormal>            let totalCount = 0;</p>
+
+<p class=MsoNormal>            let totalPrice = 0;</p>
+
+<p class=MsoNormal>            let detailsString = &quot;&quot;;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            const listContainer =
+document.getElementById('cartItemsList');</p>
+
+<p class=MsoNormal>            listContainer.innerHTML = &quot;&quot;;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            Object.keys(cart).forEach(id =&gt; {</p>
+
+<p class=MsoNormal>                const book = booksData.find(b =&gt; b.id ==
+id);</p>
+
+<p class=MsoNormal>                const quantity = cart[id];</p>
+
+<p class=MsoNormal>                totalCount += quantity;</p>
+
+<p class=MsoNormal>                totalPrice += book.price * quantity;</p>
+
+<p class=MsoNormal>                detailsString += `${book.title} (x${quantity})
+| `;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>                listContainer.innerHTML += `</p>
+
+<p class=MsoNormal>                    &lt;div class=&quot;flex justify-between
+items-center py-2&quot;&gt;</p>
+
+<p class=MsoNormal>                        &lt;div
+class=&quot;max-w-[70%]&quot;&gt;</p>
+
+<p class=MsoNormal>                            &lt;p class=&quot;font-serif
+font-semibold text-sm text-stone-900 truncate&quot;&gt;${book.title}&lt;/p&gt;</p>
+
+<p class=MsoNormal>                            &lt;p class=&quot;text-xs
+text-stone-500&quot;&gt;${book.price.toLocaleString('vi-VN')}&#273; x
+${quantity}&lt;/p&gt;</p>
+
+<p class=MsoNormal>                        &lt;/div&gt;</p>
+
+<p class=MsoNormal>                        &lt;div class=&quot;flex
+items-center gap-2&quot;&gt;</p>
+
+<p class=MsoNormal>                            &lt;button
+onclick=&quot;changeQuantity(${id}, -1)&quot; class=&quot;text-stone-400
+hover:text-red-500 px-1&quot;&gt;&lt;i class=&quot;fa-solid fa-minus
+text-xs&quot;&gt;&lt;/i&gt;&lt;/button&gt;</p>
+
+<p class=MsoNormal>                            &lt;span class=&quot;text-sm
+font-bold w-4 text-center&quot;&gt;${quantity}&lt;/span&gt;</p>
+
+<p class=MsoNormal>                            &lt;button
+onclick=&quot;changeQuantity(${id}, 1)&quot; class=&quot;text-stone-400
+hover:text-emerald-600 px-1&quot;&gt;&lt;i class=&quot;fa-solid fa-plus
+text-xs&quot;&gt;&lt;/i&gt;&lt;/button&gt;</p>
+
+<p class=MsoNormal>                        &lt;/div&gt;</p>
+
+<p class=MsoNormal>                    &lt;/div&gt;</p>
+
+<p class=MsoNormal>                `;</p>
+
+<p class=MsoNormal>            });</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            document.getElementById('cartCount').innerText =
+totalCount;</p>
+
+<p class=MsoNormal>            document.getElementById('cartTotal').innerText =
+`T&#7893;ng c&#7897;ng: ${totalPrice.toLocaleString('vi-VN')} &#273;`;</p>
+
+<p class=MsoNormal>            document.getElementById('hiddenOrderDetails').value
+= detailsString;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function changeQuantity(id, delta) {</p>
+
+<p class=MsoNormal>            cart[id] += delta;</p>
+
+<p class=MsoNormal>            if (cart[id] &lt;= 0) delete cart[id];</p>
+
+<p class=MsoNormal>            updateCartStatus();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function toggleCartModal() {</p>
+
+<p class=MsoNormal>            const modal =
+document.getElementById('cartModal');</p>
+
+<p class=MsoNormal>            modal.classList.toggle('opacity-0');</p>
+
+<p class=MsoNormal>            modal.classList.toggle('pointer-events-none');</p>
+
+<p class=MsoNormal>            document.body.classList.toggle('modal-active');</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function showPaymentStep() {</p>
+
+<p class=MsoNormal>            toggleCartModal();</p>
+
+<p class=MsoNormal>            const payModal =
+document.getElementById('paymentModal');</p>
+
+<p class=MsoNormal>            payModal.classList.remove('opacity-0',
+'pointer-events-none');</p>
+
+<p class=MsoNormal>            cart = {};</p>
+
+<p class=MsoNormal>            updateCartStatus();</p>
+
+<p class=MsoNormal>            document.getElementById('orderForm').reset();</p>
+
+<p class=MsoNormal>            submitted = false;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function closeAllModals() {</p>
+
+<p class=MsoNormal>            const payModal =
+document.getElementById('paymentModal');</p>
+
+<p class=MsoNormal>            payModal.classList.add('opacity-0', 'pointer-events-none');</p>
+
+<p class=MsoNormal>            document.body.classList.remove('modal-active');</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        window.onload = function() {</p>
+
+<p class=MsoNormal>            renderBooks();</p>
+
+<p class=MsoNormal>        };</p>
+
+<p class=MsoNormal>    &lt;/script&gt;</p>
+
+<p class=MsoNormal>&lt;/body&gt;</p>
+
+<p class=MsoNormal>&lt;/html&gt;</p>
+
+</div>
+
+</body>
+
+</html>
